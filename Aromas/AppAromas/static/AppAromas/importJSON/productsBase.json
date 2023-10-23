@@ -1,0 +1,71 @@
+[
+    {
+        "title":"Esencias","description":"Repuestos de Esencias para Hornillos","code":"COD001","price":250,"status":"true","stock":30,"category":"Esencias","thumbnail":"/productsImages/COD001-Esencias-Repuesto.png"
+    },
+    {
+        "title":"Perfumes de Cartera","description":"Perfumes de Cartera, discretos !","code":"COD002","price":450,"status":"true","stock":32,"category":"Perfumes","thumbnail":"productsImages/COD002-Perfumes-Cartera.png"
+    },
+    {
+        "title":"Jabon Liquido","description":"Jabon Liquido de aroma Pomelo Rosado","code":"COD003","price":200,"status":"true","stock":23,"category":"Jabon Liquido","thumbnail":"productsImages/COD003-Jabon-Liquido-Pomelo.png"
+    },
+    {
+        "title":"Jabon Liquido","description":"Jabon Liquido de aroma Manzana Verde","code":"COD004","price":200,"status":"true","stock":10,"category":"Jabon Liquido","thumbnail":"productsImages/COD004-Jabon-Liquido-Manzana.png"
+    },
+    {
+        "title":"Difusor Mediano","description":"Difusor tamaño mediano aroma Lima","code":"COD005","price":500,"status":"true","stock":12,"category":"Difusores","thumbnail":"productsImages/COD005-Difusor-Medium-Lima.png"
+    },
+    {
+        "title":"Difusor Grande","description":"Difusor tamaño grande aroma Pomelo","code":"COD006","price":700,"status":"true","stock":43,"category":"Difusores","thumbnail":"productsImages/COD006-Difusor-Large-Pomelo.png"
+    },
+    {
+        "title":"Difusor Grande","description":"Difusor tamaño grande aroma Lima","code":"COD007","price":700,"status":"true","stock":123,"category":"Difusores","thumbnail":"productsImages/COD007-Difusor-Large-Lima.png"
+    },
+    {
+        "title":"Hornillo Electrico","description":"Hornillo Electrico Difusor color Anaranjado","code":"COD008","price":1500,"status":"true","stock":33,"category":"Hornillos","thumbnail":"productsImages/COD008-Horno-Electrico-Difusor-Yellow.png"
+    },
+    {
+        "title":"Alcohol en Gel","description":"Alcohol en Gel color rojo","code":"COD009","price":200,"status":"true","stock":80,"category":"Alcohol en Gel","thumbnail":"productsImages/COD009-Alcohol-En-Gel-Red.png"
+    },
+    {
+        "title":"Hornillo Electrico","description":"Hornillo Electrico Difusor color Azul","code":"COD010","price":1500,"status":"true","stock":5,"category":"Hornillos","thumbnail":"productsImages/COD010-Horno-Electrico-Difusor-Blue.png"
+    },
+    {
+        "title":"Alcohol en Gel","description":"Alcohol en Gel color Azul","code":"COD011","price":200,"status":"true","stock":80,"category":"Alcohol en Gel","thumbnail":"productsImages/COD011-Alcohol-En-Gel-Blue.png"
+    },
+    {
+        "title":"Difusor Premium","description":"Difusor Premium linea Aroma Home - Frasco de Vidrio","code":"COD012","price":900,"status":"true","stock":11,"category":"Difusores","thumbnail":"productsImages/COD012-Difusor-DisenoPremium.png"
+    },
+    {
+        "title":"Difusor Premium","description":"Difusor Premium linea Aroma Home - Frasco de Vidrio","code":"COD013","price":900,"status":"true","stock":9,"category":"Difusores","thumbnail":"productsImages/COD013-Difusor-DisenoPremium-table.png"
+    },
+    {
+        "title":"Difusor Premium","description":"Difusor Premium Linea Aroma Home envase de Plastico, color Amarillo y palitos de madera en negro","code":"COD014","price":900,"status":"true","stock":9,"category":"Difusores","thumbnail":"productsImages/COD014-Difusor-DisenoHome-Yellow.png"
+    },
+    {
+        "title":"Combo Perfumina + Difusor","description":"Combo Perfumina + Difusor premium Linea Aroma Home, envases color ambar","code":"COD015","price":1200,"status":"true","stock":2,"category":"Combos","thumbnail":"productsImages/COD015-Difusor+Perfumina-DisenoHome.png"
+    },
+    {
+        "title":"Hornillo a Vela","description":"Hornillo a Vela difusor linea Aroma Home plateado","code":"COD016","price":"1100","status":"true","stock":15,"category":"Hornillos","thumbnail":"productsImages/COD016-Honnillo-Vela-Silver.png"
+    },
+    {
+        "title":"Combo Difusor + Porta Vela","description":"Difusor + Porta Vela Linea Aroma Home - Color ambar y envase de vidrio","code":"COD017","price":2300,"status":"true","stock":1,"category":"Combos","thumbnail":"productsImages/COD017-Difusor+portaVela-DisenoHome.png"
+    },
+    {
+        "title":"Combo Perfumina + Difusor","description":"Combo Perfumina + Difusor premium Linea Aroma Home, envases color ambar","code":"COD018","price":1700,"status":"true","stock":14,"category":"Combos","thumbnail":"productsImages/COD018-Perfumina+Difusor-disenoHome.png"
+    },
+    {
+        "title":"Hornillo Electrico","description":"Hornillo Electrico difusor color beige","code":"COD019","price":1500,"status":"true","stock":67,"category":"Hornillos","thumbnail":"productsImages/COD019-HornoElectricoDifusor-White.png"
+    },
+    {
+        "title":"Combo Difusor + Repuesto","description":"Difusor envase vidrio transparente + repuesto XL envase ambar - Linea Aroma Home","code":"COD020","price":950,"status":"true","stock":88,"category":"Combos","thumbnail":"productsImages/COD020-Difusores-DisenoHome.png"
+    },
+    {
+        "title":"Perfumina Grande","description":"Perfumina XL envase ambar + repuesto XL envase Ambar","code":"COD021","price":800,"status":"true","stock":60,"category":"Perfumina","thumbnail":"productsImages/COD021-Difusor+Perfumina-DisenoHome.png"
+    },
+    {
+        "title":"Combo Perfuminas","description":"Combo Perfuminas Envase ambar y transparente","code":"COD022","price":1400,"status":"true","stock":22,"category":"Combos","thumbnail":"productsImages/COD022-Perfuminas-DisenoHome.png"
+    },
+    {
+        "title":"Combo Hornillo Electrico + Espirales","description":"Combo hornillo electrico de diseño en juego con porta espirales","code":"COD023","price":2000,"status":"true","stock":20,"category":"Combos","thumbnail":"productsImages/COD023-HornoElectricoDifusor+PortaEspiral.png"
+    }
+]

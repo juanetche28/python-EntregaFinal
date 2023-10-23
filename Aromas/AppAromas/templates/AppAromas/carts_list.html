@@ -1,0 +1,34 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Users {% endblock title %}
+
+{% block main %}
+
+<div class="container px-4 px-lg-5 mt-5">
+    <p>Carts List</p>
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        {% for cart in object_list %}
+        <div class="col mb-5">
+            <div class="card h-100">
+                <!-- Cart image
+                <img class="card-img-top" src="/media/{{ user.avatar }}" /> -->
+                <!-- Cart details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <h5 class="fw-bolder">{{cart.product}} {{cart.qty}}</h5>
+                    </div>
+                </div>
+                <!-- Cart actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="d-flex justify-content-center small text-warning mb-2">
+                        <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'CartsDeleteView' cart.id %}">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <br>
+    </div>
+</div>
+    
+{% endblock main %}

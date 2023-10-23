@@ -1,0 +1,89 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Carts {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <div class="col-lg-8">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Title</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="title" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Description</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="description" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Code</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="code" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Price</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="price">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Status</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="status">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Stock</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="stock">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Category</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" name="category">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Thumbnail</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="file" name="thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-dark w-100" value="Add Product">
+            </div>
+        </div>
+    </form>
+
+{% endblock main %}

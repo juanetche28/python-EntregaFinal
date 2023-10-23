@@ -1,0 +1,18 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Products Search{% endblock title %}
+
+{% block main %}
+
+    <p>buscar porductos por Categoria (Sugerencia: Combos / Difusores)</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit" value="Send">
+
+    </form>
+
+{% endblock main %}

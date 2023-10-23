@@ -1,0 +1,16 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Products Search{% endblock title %}
+
+{% block main %}
+
+    <p>Resultados de tu Busqueda: </p>
+
+    <ul>
+        {% for product in products %}
+        <li>{{ product.title }}, {{ product.code }} </li>
+        {% endfor %}
+    </ul>
+
+{% endblock main %}
+

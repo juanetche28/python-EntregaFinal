@@ -1,0 +1,71 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block main %}
+    <!-- Header-->
+    <header class="bg-dark py-3">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Shop in Aromas Home</h1>
+                <p class="lead fw-normal text-white-50 mb-0">We have the best prices on the market.</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section-->
+    <br>
+    <br>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="/media/{{ contexto.products.thumbnail }}" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{ contexto.products.title }}</h5>
+                            <!-- Product reviews-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price and Stock-->
+                            <div>
+                                {{ contexto.products.code }}
+                                ${{ contexto.products.price }}
+                            </div>
+                            <div>
+                               Stock: {{ contexto.products.stock }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-1 pt-0 border-top-0 bg-transparent">
+                        <div class="d-flex justify-content-center small text-warning mb-2">
+                            {% if rol == "admin" or request.user.is_superuser == 1 %}
+                            <div>
+                                <div><p>Are you Sure to Delete?</p></div>
+                                <div>
+                                    <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'delete_Product' contexto.products.id %}">Yes</a>              
+                                    <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'home'%}">Back</a>
+                                </div>
+                            </div>
+                                
+                            {% else %}
+                                <div><p>You must be Admin to eliminate</p></div>
+                                <div><a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'home'%}">Back</a></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+{% endblock main %}
+

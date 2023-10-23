@@ -1,0 +1,43 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Users {% endblock title %}
+
+{% block main %}
+
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="col mb-5">
+            <div class="card h-100">
+                <!-- User image-->
+                <img class="card-img-top" src="/media/{{ contexto.user.avatar }}" />
+                <!-- User details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <!-- User Full Name-->
+                        <h5 class="fw-bolder">{{contexto.user.user.first_name}} {{contexto.user.user.last_name}}</h5>
+                        <!-- User Info Aditional-->
+                        <div>
+                            {{ contexto.user.user.email }}
+                        </div>
+                        <div>
+                          Rol: <b>{{ contexto.user.rol }}</b>
+                        </div>
+                    </div>
+                </div>
+                <!-- User actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div>
+                        <div><p>Are you Sure to Delete?</p></div>
+                        <div>
+                            <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'delete_User' contexto.user.user_id %}">Yes</a>              
+                            <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'home'%}">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+    
+{% endblock main %}

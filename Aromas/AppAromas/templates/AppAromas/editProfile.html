@@ -1,0 +1,97 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Your Profile {% endblock title %}
+
+{% block main %}
+    <section style="background-color: #eee;">
+        <div class="container py-4">
+          <!-- Seccion navBar para seleccionar editar info -->
+          <div class="row">
+            <div class="col">
+              <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="{% url 'editProfile' %}">Edit Info</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                </ol>
+              </nav>
+            </div>
+          </div> 
+          <!-- Seccion con Avatar -->
+          <form class="forms-inputs mb-4" action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="row">
+                <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                    <img src="/media/{{contexto.avatar}}" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">{{contexto.username}}</h5>
+                    <p class="text-muted mb-1">{{contexto.rol}}</p>
+                    <input class="form-control" type="file" name="avatar">
+                    </div>
+                </div>
+            </div>
+            <!-- Seccion con la Info completa del Usuario -->
+            <div class="col-lg-8">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">First Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="firstName" value="{{contexto.firstName}}" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Last Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="lastName" value="{{contexto.lastName}}" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="email" value="{{contexto.email}}" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Phone</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="phone" value="{{contexto.phone}}">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="address" value="{{contexto.address}}">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Age</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" name="age" value="{{contexto.age}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="mb-3"><input type="submit" class="btn btn-dark w-100" value="Save Changes"></div>
+            </div>
+        </form>
+        </div>
+      </section>
+{% endblock main %}
