@@ -15,7 +15,11 @@
                 <!-- Cart details-->
                 <div class="card-body p-4">
                     <div class="text-center">
-                        <h5 class="fw-bolder">{{cart.product}} {{cart.qty}}</h5>
+                        <b>Products List: </b> {{cart.products}}
+                        <br>
+                        <b>Total Cart: $ </b>{{cart.totalCart}}
+                        <br>
+                        <b>User: </b>{{cart.user.email}}
                     </div>
                 </div>
                 <!-- Cart actions-->

@@ -1,0 +1,52 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Your Cart {% endblock title %}
+
+{% block main %}
+{% load static %}
+
+{{message}}
+
+
+<div class="container px-4 px-lg-5 mt-5">
+    {% if request.session.cart.items %}
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for key, value in request.session.cart.items %}
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <!-- User image -->
+                        <img class="card-img-top" src="/media/{{ value.pic }}" />
+                        <!-- Product details-->
+                        <div class="card-body p-2">
+                            <div class="text-center">
+                                <!-- Product ID-->
+                                <p>{{value.title}}</p>
+                                <!-- Product Qty -->
+                                <div>
+                                    <b>Qty: </b> {{ value.qty }}
+                                    <a href="{% url 'addToCart' value.product_id %}"> <img src="{% static 'AppAromas/assets/sumar-black.png'%}" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+                                    <a href="{% url 'decreaseProductCart' value.product_id %}"> <img src="{% static 'AppAromas/assets/restar-black.png'%}" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+                                </div>
+                                <div>
+                                    <b>Total: </b> $ {{ value.total }}
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- Prodcut From cart actions-->
+                        <div class="card-footer p-0 pt-0 border-top-0 bg-transparent">
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'deleteProductCart' value.product_id %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <br>
+        </div>
+        <p> Total Cart: {{totalCart}}
+            <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'cartBuy'%}">Buy Cart</a>
+        </p>
+    {% endif %}
+</div>
+    
+{% endblock main %}

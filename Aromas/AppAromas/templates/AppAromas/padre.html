@@ -37,30 +37,31 @@
                                     <li><a class="dropdown-item" href="{% url 'logout' %}">Logout Session</a></li>
                                 </ul>
                             </li>
+                            {% if rol == "admin" or request.user.is_superuser == 1 %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Actions</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'reset_Products' %}">Reset Products</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'productsForm' %}">Add New Product</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'usersListView' %}">Users List</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'cartsForm' %}">Form Carts</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'cartsListView' %}">Carts List</a></li>
+                                        <li><hr class="dropdown-divider" /></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'purchasesHistory' %}">Purchases History</a></li>
+                            {% endif %}
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                         {% endif %}
-                        {% if rol == "admin" or request.user.is_superuser == 1 %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Actions</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item"><a class="nav-link" href="{% url 'reset_Products' %}">Reset Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'productsForm' %}">Add New Product</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'usersListView' %}">Users List</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'cartsForm' %}">Form Carts</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'cartsListView' %}">Carts List</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                            </ul>
-                        </li>
-                        {% endif %}
+
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    <a class="btn btn-outline-dark" href="{% url 'cartView'%}">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{lengthCart}}</span>
+                    </a>
                 </div>
             </div>
         </nav>

@@ -12,13 +12,14 @@ import json
 
 # Create your views here.
 
+
 # Creo una funcion que me devuelve el rol del usuario
 def validateRol(request):
     if  Users.objects.filter(user_id=request.user.id).exists():
         userSearched =  Users.objects.get(user_id=request.user.id)
         rol = userSearched.rol
     else:
-        rol = "user" 
+        rol = "basic" 
     return(rol)
 
 def home(request, message=None):
@@ -40,32 +41,34 @@ def search(request):
             return render(request, "AppAromas/search_results.html", {"products": products})
     else:
         miFormulario = BuscaProductForm()
-
     return render(request, "AppAromas/search.html", {"miFormulario": miFormulario})
 
-# -------------- Vista de Clase --------------
+
 class usersListView(ListView):
     model = Users
     template_name = "AppAromas/users_list.html"
 
 # -------------- Vistas de Usuarios --------------
+
 @login_required(login_url='/login')
 def delete_User(request, user_id):
-    print(f"Id a eliminar: {user_id}")
-    user = User.objects.get(id=user_id)
-    user.delete()
-    # vuelvo al menú
-    message = "User Deleted"
-    return home(request, message)
+    rol =  validateRol(request)
+    if rol == "admin" or request.user.is_superuser:
+        user = User.objects.get(id=user_id)
+        user.delete()
+        # vuelvo al menú
+        message = "User Deleted"
+        return home(request, message)
+    else:
+        message = "User Not Deleted!! You need to be Admin"
+        return home(request, message)
 
 @login_required(login_url='/login')
 def userConfirmDeleteView(request, user_id):
-    print(f"Id a confirmar: {user_id}")
     user = Users.objects.get(id=user_id)
     contexto = {"user": user}
     rol =  validateRol(request)  # Funcion que me devuelve el Rol
     return render(request, "AppAromas/userConfirmDeleteView.html", {"contexto":contexto, "rol":rol})
-
 
 @login_required(login_url='/login')
 def profile(request):
@@ -164,8 +167,14 @@ def registerUser(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
+            usuario = form.cleaned_data.get('username')
+            contrasena = form.cleaned_data.get('password1')
             form.save()
+            user = authenticate(username=usuario, password=contrasena)
+            login(request, user)
+            # Voy a agregar la info adicional default a la tabla Users
+            newUser = Users (user_id = user.id)
+            newUser.save()
             message="Successfully registered user."
             return home(request, message)
     else:  
@@ -268,6 +277,4 @@ class CartsDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("cartsListView")
     template_name = 'AppAromas/confirmDeleteCart.html'
 
-def cartBuy(request):
-    message="Product buyed successfully."
-    return home(request, message)
+

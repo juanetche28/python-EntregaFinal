@@ -1,0 +1,39 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Cart Detail {% endblock title %}
+
+{% block main %}
+
+<div class="container px-4 px-lg-5 mt-5">
+    <p>Cart Detail</p>
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">QTY</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+              <tr>
+                <td>{{ product.title }} - ID: {{product.product_id}}</td>
+                <td>{{product.qty}}</td>
+                <td>$ {{product.total}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+              <tr>
+                <th></th>
+                <th scope="col">Total</th>
+                <th scope="col">$ {{cart.totalCart}}</th>
+              </tr>
+            </thead>
+        </table>
+        <br>
+    </div>
+</div>
+    
+{% endblock main %}

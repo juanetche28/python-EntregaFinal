@@ -1,0 +1,36 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Purchases History {% endblock title %}
+
+{% block main %}
+
+<div class="container px-4 px-lg-5 mt-5">
+    <p>Purchases List</p>
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Products</th>
+                <th scope="col">Total</th>
+                <th scope="col">Invoice</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for cart in carts %}
+              <tr>
+                <th scope="row">{{cart.id}}</th>
+                <td>
+                  <a href="{% url 'cartDetail' cart.id %}">details</a>
+                </td>
+                <td>$ {{cart.totalCart}}</td>
+                <td>download</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+    
+{% endblock main %}

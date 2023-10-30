@@ -54,7 +54,7 @@
                                 <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'editProduct' product.id %}">Edit</a>
                                 <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'confirmDeleteProduct' product.id %}">Delete</a>
                             {% else %}
-                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'cartBuy'%}">Buy</a>
+                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'addToCart' product.id%}">Add to Cart</a>
                             {% endif %}
                         </div>
                     </div>

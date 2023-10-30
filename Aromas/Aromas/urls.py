@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from AppAromas import views
+from carts import viewsCarts
+
+
 #Para las imagenes
 from django.conf import settings
 from django.conf.urls.static import static
@@ -40,9 +43,15 @@ urlpatterns += [
 # ---- URLS de Carts ----
 urlpatterns += [
     path('cartsForm/', views.cartsForm, name="cartsForm"),
-    path('cartBuy/', views.cartBuy, name="cartBuy"),
+    path('cartBuy/', viewsCarts.cart_Buy, name="cartBuy"),
+    path('purchasesHistory/', viewsCarts.purchases_History, name="purchasesHistory"),
+    path('cartDetail/<int:cartID>/', viewsCarts.cart_Detail, name="cartDetail"),
     path('cartsListView/', views.cartsListView.as_view(), name="cartsListView"),
     path('CartsDeleteView/<int:pk>/', views.CartsDeleteView.as_view(), name="CartsDeleteView"),
+    path('cartView/', viewsCarts.cart_View, name="cartView"),
+    path('deletePk/<int:pk>/', viewsCarts.delete_product_cart, name="deleteProductCart"),
+    path('decreasePk/<int:pk>/', viewsCarts.decrease_product_cart, name="decreaseProductCart"),
+    path('addPk/<int:pk>/', viewsCarts.add_product_cart, name="addToCart"),
 ]
 
 

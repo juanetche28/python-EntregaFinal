@@ -23,7 +23,7 @@ class Users(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     rol_choices =[(BASIC, "Basic"), (ADMIN, "Admin"), (STAFF, "Staff")]
     age = models.IntegerField(null=True, blank=True)
-    rol = models.CharField(max_length=5, choices=rol_choices, default="user", blank=True, null=True) 
+    rol = models.CharField(max_length=5, choices=rol_choices, default="basic") 
     avatar = models.ImageField(default="avatares/avatar.png", upload_to='avatares')
     phone = models.CharField(max_length=40, null=True, blank=True)
     address = models.CharField(max_length=100, null=True, blank=True)
@@ -32,9 +32,8 @@ class Users(models.Model):
 
 
 class Carts(models.Model):
-    #products = models.CharField(max_length=100) # Desarrollar. Deberia ser un array que tenga el codigo de producto y qty de cada producto agregado al carrito.
-    product = models.CharField(max_length=5) # Iria el codigo del producto. 
-    qty = models.IntegerField() # Cantidad del producto
+    products = models.TextField(blank=True, null=True) # Diccionario de productos y qty de cada uno 
+    totalCart = models.IntegerField() # Total del Carrito
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.product} - Quantity: {self.qty}"
+        return f"{self.user} - Total Cart: {self.totalCart}"
