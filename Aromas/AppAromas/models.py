@@ -30,10 +30,12 @@ class Users(models.Model):
     def __str__(self):
         return f"{self.user.email} - {self.rol}"
 
-
+# Se guarda una vez que se compro el carrito. 
 class Carts(models.Model):
     products = models.TextField(blank=True, null=True) # Diccionario de productos y qty de cada uno 
     totalCart = models.IntegerField() # Total del Carrito
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+    nroInvoice = models.IntegerField(null=True, blank=True)
+    dateInv = models.DateField(null=True, blank=True)
     def __str__(self):
-        return f"{self.user} - Total Cart: {self.totalCart}"
+        return f"Invoice: A-{self.nroInvoice} - Total Cart: {self.totalCart} - Buyer: {self.user}"

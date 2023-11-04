@@ -51,10 +51,10 @@
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="d-flex justify-content-center small text-warning mb-2">
                             {% if rol == "admin" or request.user.is_superuser == 1 %}
-                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'editProduct' product.id %}">Edit</a>
-                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'confirmDeleteProduct' product.id %}">Delete</a>
+                                <a class="btn m-1 btn-outline-success mt-auto" href="{% url 'editProduct' product.id %}">Edit</a>
+                                <a class="btn m-1 btn-outline-danger mt-auto" href="{% url 'confirmDeleteProduct' product.id %}">Delete</a>
                             {% else %}
-                                <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'addToCart' product.id%}">Add to Cart</a>
+                                <a class="btn m-1 btn-outline-success mt-auto" href="{% url 'addToCartHome' product.id%}">Add to Cart</a>
                             {% endif %}
                         </div>
                     </div>

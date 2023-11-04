@@ -1,0 +1,34 @@
+{% extends 'AppAromas/padre.html' %}
+
+{% block title %} Users {% endblock title %}
+
+{% block main %}
+
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="col mb-5">
+            <div class="card h-100">
+                <div class="card-body p-2">
+                    <div class="text-center">
+                        <p>Are you sure to delete?</p>
+                        <b>No Invoice:</b> <a href="{% url 'generateInvoice' object.id %}">Inv-{{object.nroInvoice}}</a>
+                        <br>
+                        <b>Total Cart:</b> $ {{object.totalCart}}
+                        <br>
+                        <hr>
+                        {{object.user.email}}
+                        <hr>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input class="btn m-1 btn-outline-dark mt-auto" type="submit" value="Delete">
+                            <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'cartsListView' %}">Back</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main %}

@@ -21,3 +21,4 @@ def mis_variables(request):
     lCart = lengthCart(request)
     tCart = totalCart(request)
     return {"lengthCart": lCart, "totalCart": tCart}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="../../static/AppAromas/css/stylesInvoice.css" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <div id="logo">
+        <img src="../../static/AppAromas/assets/logo-invoice.png">
+      </div>
+      <h1>INVOICE Inv-{{cart.nroInvoice}}</h1>
+      <div id="company" class="clearfix">
+        <div>Aromas Home Co</div>
+        <div>Av. Libertad 23,<br /> AZ 90001, US</div>
+        <div>(602) 519-2323</div>
+        <div><a href="mailto:juanetche28@gmail.com">company@aromashome.com</a></div>
+      </div>
+      <div id="project">
+        <div><span>CLIENT</span> {{cart.user}}</div>
+        <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
+        <div><span>EMAIL</span> <a href="mailto:{{cart.user}}">{{cart.user}}</a></div>
+        <div><span>DATE</span> {{cart.dateInv}}</div>
+        <div><span>DUE DATE</span> 15 days invoice date </div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="desc" colspan="2">DESCRIPTION</th>
+            <th>PRICE</th>
+            <th>QTY</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+            <tr>
+              <td class="desc" colspan="2">{{ product.title}} - ID {{ product.product_id}}</td>
+              <td class="unit">$40.00</td>
+              <td class="qty">{{product.qty}}</td>
+              <td class="total">$ {{product.total}}</td>
+            </tr>
+          {% endfor %}
+          <tr>
+            <td colspan="4">SUBTOTAL</td>
+            <td class="total">$ {{cart.totalCart}}</td>
+          </tr>
+          <tr>
+            <td colspan="4">TAX 21%</td>
+            <td class="total">$ {{tax}}</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="grand total"><b>Total</b></td>
+            <td class="grand total"><b>$ {{total}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 15 days.</div>
+      </div>
+    </main>
+    <footer>
+      
+    </footer>
+  </body>
+</html>

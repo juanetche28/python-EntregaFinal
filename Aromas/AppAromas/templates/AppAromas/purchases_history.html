@@ -24,7 +24,9 @@
                   <a href="{% url 'cartDetail' cart.id %}">details</a>
                 </td>
                 <td>$ {{cart.totalCart}}</td>
-                <td>download</td>
+                <td>
+                  <a href="{% url 'generateInvoice' cart.id %}">Inv-{{cart.nroInvoice}}</a>
+                </td>
               </tr>
             {% endfor %}
             </tbody>

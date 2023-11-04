@@ -14,7 +14,11 @@
                             {{ form.as_p }}
                         </table>
                         <div class="mb-3"><input type="submit" class="btn btn-dark w-100" value="login"></div>
-                        <div class="mb-3"><a href="{% url 'register' %}">Register now!</a></div>
+                        <div class="mb-3">
+                            <a href="{% url 'password_reset' %}">Reset password</a>
+                            or 
+                            <a href="{% url 'register' %}">Register now!</a>
+                        </div>
                         <div class="mb-3">{{ message }}</div>
                     </form>
                 </div>

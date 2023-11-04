@@ -22,7 +22,7 @@
                     <!-- Product image-->
                     <img class="card-img-top" src="/media/{{ contexto.products.thumbnail }}" />
                     <!-- Product details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-0">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder">{{ contexto.products.title }}</h5>
@@ -49,8 +49,8 @@
                         <div class="d-flex justify-content-center small text-warning mb-2">
                             {% if rol == "admin" or request.user.is_superuser == 1 %}
                             <div>
-                                <div><p>Are you Sure to Delete?</p></div>
-                                <div>
+                                <div><p><b>Are you Sure to Delete?</b></p></div>
+                                <div class="text-center">
                                     <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'delete_Product' contexto.products.id %}">Yes</a>              
                                     <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'home'%}">Back</a>
                                 </div>

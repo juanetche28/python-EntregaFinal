@@ -12,7 +12,7 @@
                     <!-- User image-->
                     <img class="card-img-top" src="/media/{{ contexto.user.avatar }}" />
                     <!-- User details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-0">
                         <div class="text-center">
                             <!-- User Full Name-->
                             <h5 class="fw-bolder">{{contexto.user.user.first_name}} {{contexto.user.user.last_name}}</h5>
@@ -27,9 +27,10 @@
                     </div>
                     <!-- User actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <hr>
                         <div>
                             <div><p>Are you Sure to Delete?</p></div>
-                            <div>
+                            <div class="text-center">
                                 <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'delete_User' contexto.user.user_id %}">Yes</a>              
                                 <a class="btn m-1 btn-outline-dark mt-auto" href="{% url 'home'%}">Back</a>
                             </div>

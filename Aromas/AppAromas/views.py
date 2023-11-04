@@ -68,7 +68,7 @@ def userConfirmDeleteView(request, user_id):
     user = Users.objects.get(id=user_id)
     contexto = {"user": user}
     rol =  validateRol(request)  # Funcion que me devuelve el Rol
-    return render(request, "AppAromas/userConfirmDeleteView.html", {"contexto":contexto, "rol":rol})
+    return render(request, "AppAromas/userConfirmDelete.html", {"contexto":contexto, "rol":rol})
 
 @login_required(login_url='/login')
 def profile(request):
@@ -243,7 +243,7 @@ def confirmDeleteProduct(request, product_id):
     products = Products.objects.get(id=product_id)
     contexto = {"products": products}
     rol =  validateRol(request)  # Funcion que me devuelve el Rol
-    return render(request, "AppAromas/confirmDeleteProduct.html", {"contexto":contexto, "rol":rol})
+    return render(request, "AppAromas/productConfirmDelete.html", {"contexto":contexto, "rol":rol})
 
 @login_required(login_url='/login')
 def deleteProduct(request, product_id):
@@ -254,27 +254,13 @@ def deleteProduct(request, product_id):
     return home(request, message)
 
 
-# --------------Vista de Carts --------------
-def cartsForm(request):
-    if request.method =='POST':
-        miFormulario = CartForm(request.POST)
-        if miFormulario.is_valid():
-            informacion = miFormulario.cleaned_data
-            cart = Carts(product=informacion['product'],qty=informacion['qty'])
-            cart.save()
-            message="Cart added successfully."
-            return home(request, message)
-    else:
-        miFormulario = CartForm()
-    return render(request, "AppAromas/cartsForm.html", {"miFormulario": miFormulario})
 
-class cartsListView(ListView):
-    model = Carts
-    template_name = "AppAromas/carts_list.html"
+@login_required(login_url='/login')
+def productsConfirmReset(request):
+    return render(request, "AppAromas/productsConfirmReset.html")
 
-class CartsDeleteView(LoginRequiredMixin, DeleteView):
-    model = Carts
-    success_url = reverse_lazy("cartsListView")
-    template_name = 'AppAromas/confirmDeleteCart.html'
+
+
+
 
 

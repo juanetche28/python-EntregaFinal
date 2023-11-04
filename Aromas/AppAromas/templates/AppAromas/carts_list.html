@@ -10,16 +10,14 @@
         {% for cart in object_list %}
         <div class="col mb-5">
             <div class="card h-100">
-                <!-- Cart image
-                <img class="card-img-top" src="/media/{{ user.avatar }}" /> -->
-                <!-- Cart details-->
-                <div class="card-body p-4">
+                <div class="card-body p-2">
                     <div class="text-center">
-                        <b>Products List: </b> {{cart.products}}
+                        <b>No Invoice:</b> <a href="{% url 'generateInvoice' cart.id %}">Inv-{{cart.nroInvoice}}</a>
                         <br>
-                        <b>Total Cart: $ </b>{{cart.totalCart}}
+                        <b>Total Cart:</b> $ {{cart.totalCart}}
                         <br>
-                        <b>User: </b>{{cart.user.email}}
+                        <hr>
+                        {{cart.user.email}}
                     </div>
                 </div>
                 <!-- Cart actions-->
